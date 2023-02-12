@@ -1,5 +1,4 @@
-import ProjectsList from "@/components/meetups/ProjectsList"
-import Link from "next/link"
+import ProjectsList from "@/components/projects/ProjectsList"
 import { Fragment } from "react"
 
 const LIST = [
