@@ -1,5 +1,7 @@
+import MainPage from "@/components/MainPage"
+
 const HomePage = (params) => {
-	return <h1>Welcome to Pan.be</h1>
+	return <MainPage />
 }
 
 export default HomePage

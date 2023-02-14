@@ -1,0 +1,23 @@
+.article-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+
+.article-container img {
+    /* padding: 0 20vh; */
+    height: 60vh;
+}
+
+.article p,
+.article a {
+    text-align: justify;
+    color: black;
+    font-size: 30px;
+    text-decoration: none;
+}
+
+.article a:hover {
+    text-decoration: underline;
+}
