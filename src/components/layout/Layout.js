@@ -1,6 +1,6 @@
 import MainNavigation from "./MainNavigation"
 import classes from "./Layout.module.css"
-import FooterComponent from "./Footer"
+import FooterComponent from "./FooterComponent"
 
 function Layout(props) {
 	return (

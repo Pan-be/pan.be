@@ -1,10 +1,11 @@
+import classes from "./FooterComponent.module.css"
 const FooterComponent = () => {
 	return (
-		<footer>
+		<footer className={classes.footer}>
 			<h5>
 				© copyright by{" "}
 				<a href='https://business-card-pan-be.netlify.app/'>pan.be</a>
-				<script>document.write(new Date().getFullYear())</script>
+				{" " + new Date().getFullYear()}
 			</h5>
 		</footer>
 	)
