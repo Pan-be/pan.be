@@ -1,3 +1,5 @@
+import { MongoClient } from "mongodb"
+
 import ProjectsList from "@/components/projects/ProjectsList"
 import { Fragment } from "react"
 
@@ -39,9 +41,28 @@ const Projects = (props) => {
 }
 
 export const getStaticProps = async () => {
+	const client = await MongoClient.connect(
+		"mongodb+srv://pan:JachuStachu12@cluster0.vh8v8ji.mongodb.net/?retryWrites=true&w=majority"
+	)
+
+	console.log(client)
+
+	const db = client.db("test")
+	const projectsCollection = db.collection("projects")
+	console.log(projectsCollection)
+	const projects = await projectsCollection.find().toArray()
+	console.log(projects)
+
+	client.close()
+
 	return {
 		props: {
-			projects: LIST,
+			projects: projects.map((project) => ({
+				title: project.title,
+				stack: project.stack,
+				img: project.img,
+				id: project._id.toString(),
+			})),
 		},
 	}
 }
