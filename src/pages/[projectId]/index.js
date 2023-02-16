@@ -1,43 +1,58 @@
+import { MongoClient, ObjectId } from "mongodb"
 import ProjectDetail from "@/components/projects/ProjectDetail"
 
-const DetailPage = () => {
+const DetailPage = (props) => {
 	return (
 		<ProjectDetail
-			img='https://earlystemer.com/wp-content/uploads/2021/09/html-structure-1024x588.png'
-			title='First Project'
-			stack='Name of stack'
-			description='This project is a modern and dynamic web application, built using the latest technologies in JavaScript development. It features a clean and user-friendly interface, with a focus on efficient navigation and seamless user experience. The project utilizes cutting-edge libraries such as React, Redux, and Webpack, to deliver a fast and responsive website that can handle complex data structures with ease. With its modular architecture and scalable design, this project is the perfect solution for businesses and organizations looking to take their online presence to the next level. Whether you need to showcase products, manage customer information, or deliver dynamic content, this project has everything you need to succeed in the digital world.'
+			img={props.projectData.img}
+			title={props.projectData.title}
+			stack={props.projectData.stack}
+			description={props.projectData.description}
 		/>
 	)
 }
 
-export const getStaticPaths = () => {
+export const getStaticPaths = async () => {
+	const client = await MongoClient.connect(
+		"mongodb+srv://pan:JachuStachu12@cluster0.vh8v8ji.mongodb.net/?retryWrites=true&w=majority"
+	)
+
+	const db = client.db("panbe")
+	const projectsCollection = db.collection("projects")
+
+	const projects = await projectsCollection.find({}, { _id: 1 }).toArray()
+
+	client.close()
 	return {
 		fallback: false,
-		paths: [
-			{
-				params: {
-					projectId: "p1",
-				},
-			},
-		],
+		paths: projects.map((project) => ({
+			params: { projectId: project._id.toString() },
+		})),
 	}
 }
 
 export const getStaticProps = async (context) => {
 	const projectId = context.params.projectId
 
-	console.log(projectId)
+	const client = await MongoClient.connect(
+		"mongodb+srv://pan:JachuStachu12@cluster0.vh8v8ji.mongodb.net/?retryWrites=true&w=majority"
+	)
 
+	const db = client.db("panbe")
+	const projectsCollection = db.collection("projects")
+
+	const selectedProject = await projectsCollection.findOne({
+		_id: ObjectId(projectId),
+	})
+
+	client.close()
 	return {
 		props: {
 			projectData: {
-				id: "p1",
-				img: "https://earlystemer.com/wp-content/uploads/2021/09/html-structure-1024x588.png",
-				title: "First Project",
-				stack: "Name of stack",
-				description:
-					"This project is a modern and dynamic web application, built using the latest technologies in JavaScript development. It features a clean and user-friendly interface, with a focus on efficient navigation and seamless user experience. The project utilizes cutting-edge libraries such as React, Redux, and Webpack, to deliver a fast and responsive website that can handle complex data structures with ease. With its modular architecture and scalable design, this project is the perfect solution for businesses and organizations looking to take their online presence to the next level. Whether you need to showcase products, manage customer information, or deliver dynamic content, this project has everything you need to succeed in the digital world.",
+				id: selectedProject._id.toString(),
+				title: selectedProject.title,
+				stack: selectedProject.stack,
+				img: selectedProject.img,
 			},
 		},
 	}
