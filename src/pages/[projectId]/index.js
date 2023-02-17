@@ -1,14 +1,22 @@
 import { MongoClient, ObjectId } from "mongodb"
 import ProjectDetail from "@/components/projects/ProjectDetail"
+import { Fragment } from "react"
+import Head from "next/head"
 
 const DetailPage = (props) => {
 	return (
-		<ProjectDetail
-			img={props.projectData.img}
-			title={props.projectData.title}
-			stack={props.projectData.stack}
-			description={props.projectData.description}
-		/>
+		<Fragment>
+			<Head>
+				<title>{props.projectData.title}</title>
+				<meta name='description' content={props.projectData.description} />
+			</Head>
+			<ProjectDetail
+				img={props.projectData.img}
+				title={props.projectData.title}
+				stack={props.projectData.stack}
+				description={props.projectData.description}
+			/>
+		</Fragment>
 	)
 }
 
@@ -42,7 +50,7 @@ export const getStaticProps = async (context) => {
 	const projectsCollection = db.collection("projects")
 
 	const selectedProject = await projectsCollection.findOne({
-		_id: ObjectId(projectId),
+		_id: new ObjectId(projectId),
 	})
 
 	client.close()

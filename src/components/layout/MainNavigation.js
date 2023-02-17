@@ -4,7 +4,9 @@ import classes from "./MainNavigation.module.css"
 function MainNavigation() {
 	return (
 		<header className={classes.header}>
-			<div className={classes.logo}>pan.be</div>
+			<div className={classes.logo}>
+				<Link href='/'>pan.be</Link>
+			</div>
 			<nav>
 				<ul>
 					<li>
