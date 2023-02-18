@@ -15,6 +15,7 @@ const DetailPage = (props) => {
 				title={props.projectData.title}
 				stack={props.projectData.stack}
 				description={props.projectData.description}
+				html={props.projectData.html}
 			/>
 		</Fragment>
 	)
@@ -61,6 +62,8 @@ export const getStaticProps = async (context) => {
 				title: selectedProject.title,
 				stack: selectedProject.stack,
 				img: selectedProject.img,
+				description: selectedProject.description,
+				html: selectedProject.html ? selectedProject.html : "#",
 			},
 		},
 	}

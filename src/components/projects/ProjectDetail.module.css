@@ -1,8 +1,16 @@
 .detail {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
 	min-height: 60vh;
 	text-align: center;
 }
 
 .detail img {
 	width: 100%;
+}
+
+.links {
+	display: flex;
+	justify-content: space-around;
 }
