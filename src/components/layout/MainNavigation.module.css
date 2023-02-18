@@ -9,9 +9,11 @@
 }
 
 .logo {
-	font-size: 2rem;
-	color: white;
-	font-weight: bold;
+	max-height: 5rem;
+}
+
+.logo img {
+	height: 5rem;
 }
 
 .header ul {

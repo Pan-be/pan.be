@@ -5,7 +5,9 @@ function MainNavigation() {
 	return (
 		<header className={classes.header}>
 			<div className={classes.logo}>
-				<Link href='/'>pan.be</Link>
+				<Link href='/'>
+					<img src='./img/pan.be-logo.png' alt='pan.be logo' />
+				</Link>
 			</div>
 			<nav>
 				<ul>

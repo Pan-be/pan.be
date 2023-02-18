@@ -1,6 +1,16 @@
+.app {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: auto;
+	min-height: 100vh;
+	background-color: #545454;
+	max-width: 80%;
+}
 .main {
+	flex: 1;
 	display: flex;
 	margin: 3rem auto;
-	width: 90%;
-	max-width: 40rem;
+	width: 100%;
+	/* max-width: 40rem; */
 }

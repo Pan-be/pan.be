@@ -1,6 +1,8 @@
 .footer {
 	display: flex;
 	justify-content: center;
+	clear: both;
+	margin-bottom: 20px;
 }
 
 .footer h5 {
