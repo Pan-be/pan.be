@@ -1,7 +1,7 @@
-import { MongoClient } from "mongodb"
 import Head from "next/head"
 import ProjectsList from "@/components/projects/ProjectsList"
 import { Fragment } from "react"
+import { connectToDatabase } from "@/utilis/db"
 
 const Projects = (props) => {
 	return (
@@ -9,19 +9,13 @@ const Projects = (props) => {
 			<Head>
 				<title>Portfolio</title>
 			</Head>
-			{/* <h1>My portfolio</h1> */}
 			<ProjectsList projects={props.projects} />
 		</Fragment>
 	)
 }
 
 export const getStaticProps = async () => {
-	const client = await MongoClient.connect(
-		"mongodb+srv://pan:JachuStachu12@cluster0.vh8v8ji.mongodb.net/?retryWrites=true&w=majority"
-	)
-
-	const db = client.db("panbe")
-	const projectsCollection = db.collection("projects")
+	const { client, projectsCollection } = await connectToDatabase()
 
 	const projects = await projectsCollection.find().toArray()
 

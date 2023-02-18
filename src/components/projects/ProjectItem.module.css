@@ -22,7 +22,8 @@
 	padding: 1rem;
 }
 
-.content h3 {
+.content h3,
+.content address {
 	font-size: 1.25rem;
 	color: white;
 }

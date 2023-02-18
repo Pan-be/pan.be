@@ -1,7 +1,8 @@
-import { MongoClient, ObjectId } from "mongodb"
+import { ObjectId } from "mongodb"
 import ProjectDetail from "@/components/projects/ProjectDetail"
 import { Fragment } from "react"
 import Head from "next/head"
+import { connectToDatabase } from "@/utilis/db"
 
 const DetailPage = (props) => {
 	return (
@@ -23,12 +24,7 @@ const DetailPage = (props) => {
 }
 
 export const getStaticPaths = async () => {
-	const client = await MongoClient.connect(
-		"mongodb+srv://pan:JachuStachu12@cluster0.vh8v8ji.mongodb.net/?retryWrites=true&w=majority"
-	)
-
-	const db = client.db("panbe")
-	const projectsCollection = db.collection("projects")
+	const { client, projectsCollection } = await connectToDatabase()
 
 	const projects = await projectsCollection.find({}, { _id: 1 }).toArray()
 
@@ -44,12 +40,7 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) => {
 	const projectId = context.params.projectId
 
-	const client = await MongoClient.connect(
-		"mongodb+srv://pan:JachuStachu12@cluster0.vh8v8ji.mongodb.net/?retryWrites=true&w=majority"
-	)
-
-	const db = client.db("panbe")
-	const projectsCollection = db.collection("projects")
+	const { client, projectsCollection } = await connectToDatabase()
 
 	const selectedProject = await projectsCollection.findOne({
 		_id: new ObjectId(projectId),
