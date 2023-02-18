@@ -1,13 +1,15 @@
 import { MongoClient } from "mongodb"
-import {} from "../../../public/img/projects/OrderMeals.png"
-
+import Head from "next/head"
 import ProjectsList from "@/components/projects/ProjectsList"
 import { Fragment } from "react"
 
 const Projects = (props) => {
 	return (
 		<Fragment>
-			<h1>My portfolio</h1>
+			<Head>
+				<title>Portfolio</title>
+			</Head>
+			{/* <h1>My portfolio</h1> */}
 			<ProjectsList projects={props.projects} />
 		</Fragment>
 	)
