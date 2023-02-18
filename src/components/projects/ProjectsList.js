@@ -15,6 +15,7 @@ function ProjectsList(props) {
 							image={proj.img}
 							title={proj.title}
 							address={proj.url}
+							stack={proj.stack}
 						/>
 					))}
 				</ul>
