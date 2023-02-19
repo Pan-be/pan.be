@@ -4,8 +4,8 @@
 	justify-content: center;
 	margin: auto;
 	min-height: 100vh;
-	background-color: #545454;
-	max-width: 80%;
+	background-color: transparent;
+	max-width: 1000px;
 }
 .main {
 	flex: 1;

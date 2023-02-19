@@ -30,7 +30,7 @@ export const getStaticPaths = async () => {
 
 	client.close()
 	return {
-		fallback: false,
+		fallback: "blocking",
 		paths: projects.map((project) => ({
 			params: { projectId: project._id.toString() },
 		})),
