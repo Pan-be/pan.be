@@ -8,3 +8,13 @@
 	color: white;
 	font-size: 3rem;
 }
+
+.menuItem {
+	margin-bottom: 5px;
+}
+
+@media (min-width: 700px) {
+	.barsButton {
+		display: none;
+	}
+}

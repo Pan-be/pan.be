@@ -9,6 +9,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 // } from "@fortawesome/fontawesome-svg-core/import.macro"
 import { faBars } from "@fortawesome/free-solid-svg-icons"
 import classes from "./HamburgerMenu.module.css"
+import Link from "next/link"
+import { menuObj } from "@/utilis/menuObj"
 
 function HamburgerMenu() {
 	const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -27,7 +29,11 @@ function HamburgerMenu() {
 				right
 				isOpen={isMenuOpen}
 				styles={{
-					// bmMenu: { background: "black", padding: "2.5em" },
+					bmMenu: {
+						background: "transparent",
+						padding: "2.5em",
+						width: "100vw",
+					},
 					bmBurgerButton: {
 						position: "fixed",
 						width: "36px",
@@ -40,17 +46,17 @@ function HamburgerMenu() {
 					// bmItemList: { color: "#b8b7ad", padding: "0.8em" },
 					// bmItem: { display: "inline-block" },
 					// bmOverlay: { background: "rgba(0, 0, 0, 0.3)" },
+					bmOverlay: { background: "transparent" },
 				}}>
-				<a className='menu-item' href='/'>
-					<FontAwesomeIcon icon='fa-solid fa-bars fa-2xl' />
-					Home
-				</a>
-				<a className='menu-item' href='#'>
-					About
-				</a>
-				<a className='menu-item' href='#'>
-					Contact
-				</a>
+				<ul>
+					{menuObj.map((menuItem) => (
+						<li className={classes.menuItem}>
+							<Link href={menuItem.url} target={menuItem.target}>
+								{menuItem.title}
+							</Link>
+						</li>
+					))}
+				</ul>
 			</Menu>
 		</div>
 	)

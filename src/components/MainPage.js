@@ -4,7 +4,7 @@ const MainPage = () => {
 	return (
 		<main className={classes["article-container"]}>
 			<aside className={classes["face-container"]}>
-				<img src='img/face.png' alt='logo' />
+				<img src='img/biala_buzia.png' alt='logo' />
 			</aside>
 			<div className={classes.article}>
 				<p>Konrad Bieniek</p>

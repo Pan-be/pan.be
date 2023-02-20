@@ -3,7 +3,8 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color: whitesmoke;
+	/* background-color: #2f2b3b; */
+	background-color: transparent;
 }
 
 .article-container img {
@@ -14,7 +15,7 @@
 .article p,
 .article a {
 	text-align: justify;
-	color: black;
+	color: white;
 	font-size: 30px;
 	text-decoration: none;
 }
