@@ -1,3 +1,10 @@
-.icon {
-	font-size: 4rem;
+.barsButton {
+	background-color: transparent;
+	border: 0;
+}
+
+.bars {
+	background-color: #3f3a4e;
+	color: white;
+	font-size: 3rem;
 }

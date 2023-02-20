@@ -1,6 +1,14 @@
 import { slide as Menu } from "react-burger-menu"
 import { useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+// import {
+// 	solid,
+// 	regular,
+// 	brands,
+// 	icon,
+// } from "@fortawesome/fontawesome-svg-core/import.macro"
+import { faBars } from "@fortawesome/free-solid-svg-icons"
+import classes from "./HamburgerMenu.module.css"
 
 function HamburgerMenu() {
 	const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -12,11 +20,9 @@ function HamburgerMenu() {
 
 	return (
 		<div>
-			<button onClick={handleMenuToggle}>
-				<FontAwesomeIcon icon='fa-solid fa-bars' />
-				Open Menu
+			<button className={classes.barsButton} onClick={handleMenuToggle}>
+				<FontAwesomeIcon icon={faBars} className={classes.bars} />
 			</button>
-			{/* <Menu isOpen={isMenuOpen} > */}
 			<Menu
 				right
 				isOpen={isMenuOpen}
