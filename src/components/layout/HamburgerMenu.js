@@ -19,6 +19,9 @@ function HamburgerMenu() {
 		e.preventDefault()
 		setIsMenuOpen(!isMenuOpen)
 	}
+	const handleMenuItemClick = () => {
+		setIsMenuOpen(false)
+	}
 
 	return (
 		<div>
@@ -51,7 +54,10 @@ function HamburgerMenu() {
 				<ul>
 					{menuObj.map((menuItem) => (
 						<li className={classes.menuItem}>
-							<Link href={menuItem.url} target={menuItem.target}>
+							<Link
+								href={menuItem.url}
+								target={menuItem.target}
+								onClick={handleMenuItemClick}>
 								{menuItem.title}
 							</Link>
 						</li>

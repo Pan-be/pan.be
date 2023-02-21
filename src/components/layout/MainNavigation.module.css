@@ -5,7 +5,7 @@
 	align-items: center;
 	justify-content: space-between;
 	background-color: transparent;
-	padding: 0 0 0 10%;
+	padding: 0 4px 0 10%;
 }
 
 .logo {
@@ -60,6 +60,7 @@
 	align-self: flex-end;
 	flex-direction: column;
 	gap: 10px;
+	padding-right: 4px;
 }
 
 .brandIcon {
