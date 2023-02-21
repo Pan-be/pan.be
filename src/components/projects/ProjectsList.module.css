@@ -1,7 +1,7 @@
 .projList {
 	display: flex;
 	flex-direction: column;
-	color: black;
+	color: inherit;
 	text-align: center;
 }
 
