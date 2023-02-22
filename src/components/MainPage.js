@@ -1,4 +1,3 @@
-import Link from "next/link"
 import classes from "./MainPage.module.css"
 
 const MainPage = () => {
@@ -10,9 +9,7 @@ const MainPage = () => {
 			<div className={classes.article}>
 				<h1>Konrad Bieniek</h1>
 				<h2>Front-End Developer</h2>
-				<h2>
-					<Link href='#'>Read more...</Link>
-				</h2>
+				<h2>Read more...</h2>
 			</div>
 		</main>
 	)

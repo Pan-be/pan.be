@@ -10,7 +10,7 @@
 
 .article-container img {
 	position: relative;
-	top: -70px;
+	top: -10px;
 	/* padding: 0 20vh; */
 	/* height: 60vh; */
 	height: 300px;
@@ -24,6 +24,7 @@
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
+	padding-top: 50px;
 }
 
 .article h1 {
@@ -45,10 +46,17 @@
 	margin: 0;
 	padding: 0;
 }
-.article:last-child {
+.article h2:last-child {
+	padding-top: 30px;
+	padding-right: 10%;
 	text-align: right;
 }
 
-.article a:hover {
-	text-decoration: underline;
+.article h2:last-child:hover,
+.article h2:last-child:hover {
+	cursor: pointer;
+	text-decoration: underline 1px;
+}
+
+@media (min-width: 700px) {
 }

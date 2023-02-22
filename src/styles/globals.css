@@ -84,6 +84,7 @@
 html,
 body {
 	font-family: "Montserrat", sans-serif;
+	font-weight: 100;
 	max-width: 100vw;
 	overflow-x: hidden;
 }
@@ -107,6 +108,7 @@ a {
 	html {
 		/* color-scheme: dark; */
 		background-color: #3f3a4e;
+		/* background-color: rgb(1, 56, 50); */
 		color: whitesmoke;
 	}
 }
