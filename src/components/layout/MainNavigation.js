@@ -9,6 +9,7 @@ import {
 	faDiscord,
 } from "@fortawesome/free-brands-svg-icons"
 import { Fragment } from "react"
+import ContactModal from "../contactModal/ContactModal"
 
 function MainNavigation() {
 	return (
@@ -22,10 +23,14 @@ function MainNavigation() {
 				<nav className={classes.mainNav}>
 					<ul>
 						{menuObj.map((menuItem) => (
-							<li>
-								<Link href={menuItem.url} target={menuItem.target}>
-									{menuItem.title}
-								</Link>
+							<li key={menuItem.title}>
+								{menuItem.title === "Contact me" ? (
+									<ContactModal />
+								) : (
+									<Link href={menuItem.url} target={menuItem.target}>
+										{menuItem.title}
+									</Link>
+								)}
 							</li>
 						))}
 					</ul>

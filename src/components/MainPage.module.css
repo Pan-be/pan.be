@@ -59,4 +59,23 @@
 }
 
 @media (min-width: 700px) {
+	.article-container {
+		flex-direction: row;
+		align-items: center;
+		max-height: 400px;
+		max-width: 1000px;
+	}
+
+	.article-container img {
+		position: relative;
+		top: 0;
+		padding-left: 200px;
+		align-self: flex-start;
+		/* height: 60vh; */
+		height: 300px;
+	}
+
+	.article {
+		margin: auto;
+	}
 }
