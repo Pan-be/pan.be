@@ -1,9 +1,11 @@
 import { useState } from "react"
 import Modal from "react-modal"
+import Loader from "../ui/Loader"
 import classes from "./ContactModal.module.css"
 
 const ContactModal = (props) => {
 	const [isModalOpen, setIsModalOpen] = useState(false)
+	const [isLoading, setIsLoading] = useState(true)
 
 	const handleModalOpen = () => {
 		setIsModalOpen(true)
@@ -14,8 +16,17 @@ const ContactModal = (props) => {
 	}
 
 	const handleOnClick = () => {
-		handleModalOpen()
-		props.onClick()
+		// handleModalOpen()
+		if (props.handleMenuItemClick) {
+			handleModalOpen()
+			props.handleMenuItemClick()
+		} else {
+			handleModalOpen()
+		}
+	}
+
+	const handleIframeLoad = () => {
+		setIsLoading(false)
 	}
 
 	return (
@@ -30,7 +41,10 @@ const ContactModal = (props) => {
 				<div
 					className={classes["modal-overlay"]}
 					onClick={handleModalClose}></div>
-				<div className={classes.wrapper}>
+				{isLoading && <Loader />}
+				<div
+					className={classes.wrapper}
+					style={{ display: isLoading ? "none" : "block" }}>
 					<div
 						style={{
 							position: "relative",
@@ -59,7 +73,8 @@ const ContactModal = (props) => {
 							}}
 							src='https://www.canva.com/design/DAFY9VhdfsY/view?embed'
 							allowFullScreen='allowfullscreen'
-							allow='fullscreen'></iframe>
+							allow='fullscreen'
+							onLoad={handleIframeLoad}></iframe>
 					</div>
 					<div className={classes.footer}>
 						<p>

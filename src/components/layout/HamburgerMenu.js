@@ -66,7 +66,7 @@ function HamburgerMenu(props) {
 					{menuObj.map((menuItem) => (
 						<li key={menuItem.title} className={classes.menuItem}>
 							{menuItem.title === "Contact me" ? (
-								<ContactModal onClick={handleMenuItemClick} />
+								<ContactModal handleMenuItemClick={handleMenuItemClick} />
 							) : (
 								<Link
 									href={menuItem.url}
