@@ -2,7 +2,7 @@ import { useState } from "react"
 import Modal from "react-modal"
 import classes from "./ContactModal.module.css"
 
-const ContactModal = () => {
+const ContactModal = (props) => {
 	const [isModalOpen, setIsModalOpen] = useState(false)
 
 	const handleModalOpen = () => {
@@ -13,12 +13,20 @@ const ContactModal = () => {
 		setIsModalOpen(false)
 	}
 
+	const handleOnClick = () => {
+		handleModalOpen()
+		props.onClick()
+	}
+
 	return (
 		<>
-			<a className={classes.link} onClick={handleModalOpen}>
+			<a className={classes.link} onClick={handleOnClick}>
 				Contact me
 			</a>
-			<Modal className={classes.modal} isOpen={isModalOpen} onRequestClose={handleModalClose}>
+			<Modal
+				className={classes.modal}
+				isOpen={isModalOpen}
+				onRequestClose={handleModalClose}>
 				<div
 					className={classes["modal-overlay"]}
 					onClick={handleModalClose}></div>

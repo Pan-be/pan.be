@@ -11,8 +11,9 @@ import { faBars } from "@fortawesome/free-solid-svg-icons"
 import classes from "./HamburgerMenu.module.css"
 import Link from "next/link"
 import { menuObj } from "@/utilis/menuObj"
+import ContactModal from "../contactModal/ContactModal"
 
-function HamburgerMenu() {
+function HamburgerMenu(props) {
 	const [isMenuOpen, setIsMenuOpen] = useState(false)
 
 	const handleMenuToggle = (e) => {
@@ -52,7 +53,7 @@ function HamburgerMenu() {
 					bmOverlay: { background: "transparent" },
 				}}>
 				<ul>
-					{menuObj.map((menuItem) => (
+					{/* {menuObj.map((menuItem) => (
 						<li className={classes.menuItem}>
 							<Link
 								href={menuItem.url}
@@ -60,6 +61,20 @@ function HamburgerMenu() {
 								onClick={handleMenuItemClick}>
 								{menuItem.title}
 							</Link>
+						</li>
+					))} */}
+					{menuObj.map((menuItem) => (
+						<li key={menuItem.title} className={classes.menuItem}>
+							{menuItem.title === "Contact me" ? (
+								<ContactModal onClick={handleMenuItemClick} />
+							) : (
+								<Link
+									href={menuItem.url}
+									target={menuItem.target}
+									onClick={handleMenuItemClick}>
+									{menuItem.title}
+								</Link>
+							)}
 						</li>
 					))}
 				</ul>
