@@ -17,3 +17,5 @@ const AboutMe = () => {
 		</p>
 	)
 }
+
+export default AboutMe

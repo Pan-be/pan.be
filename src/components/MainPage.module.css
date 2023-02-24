@@ -25,6 +25,7 @@
 	flex-direction: column;
 	gap: 10px;
 	padding-top: 50px;
+	flex-wrap: wrap;
 }
 
 .article h1 {
@@ -77,5 +78,6 @@
 
 	.article {
 		margin: auto;
+		flex-wrap: nowrap;
 	}
 }

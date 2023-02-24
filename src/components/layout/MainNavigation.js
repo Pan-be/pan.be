@@ -39,9 +39,17 @@ function MainNavigation() {
 				<HamburgerMenu />
 			</header>
 			<div className={classes.brands}>
-				<FontAwesomeIcon icon={faGithub} className={classes.brandIcon} />
-				<FontAwesomeIcon icon={faLinkedin} className={classes.brandIcon} />
-				<FontAwesomeIcon icon={faDiscord} className={classes.brandIcon} />
+				<Link href='https://github.com/Pan-be'>
+					<FontAwesomeIcon icon={faGithub} className={classes.brandIcon} />
+				</Link>
+				<Link
+					href='https://www.linkedin.com/in/konrad-bieniek-73779b17a/'
+					target='_blank'>
+					<FontAwesomeIcon icon={faLinkedin} className={classes.brandIcon} />
+				</Link>
+				<Link href='#' target='_blank'>
+					<FontAwesomeIcon icon={faDiscord} className={classes.brandIcon} />
+				</Link>
 			</div>
 		</Fragment>
 	)

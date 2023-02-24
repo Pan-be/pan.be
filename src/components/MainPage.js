@@ -1,3 +1,4 @@
+import AboutMe from "./aboutMe/AboutMe"
 import classes from "./MainPage.module.css"
 
 const MainPage = () => {
@@ -11,6 +12,9 @@ const MainPage = () => {
 				<h2>Front-End Developer</h2>
 				<h2>Read more...</h2>
 			</div>
+			{/* <div className={classes.aboutMe}>
+				<AboutMe />
+			</div> */}
 		</main>
 	)
 }

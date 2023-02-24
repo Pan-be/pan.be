@@ -72,4 +72,8 @@
 	.mainNav {
 		display: inline-block;
 	}
+
+	.brands {
+		flex-direction: row-reverse;
+	}
 }
