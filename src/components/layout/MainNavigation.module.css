@@ -60,6 +60,8 @@
 	display: flex;
 	align-self: flex-end;
 	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	gap: 10px;
 	padding-right: 4px;
 }
