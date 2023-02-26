@@ -2,10 +2,24 @@ import classes from "./Logos.module.css"
 
 const Logos = () => {
 	const logosArr = [
-		{ title: "html", href: "img/htmlLogoColor.png", alt: "HTML logo" },
-		{ title: "css", href: "img/cssLogoColor.png", alt: "CSS logo" },
-		{ title: "js", href: "img/jsLogoColor.png", alt: "JS logo" },
-		{ title: "git", href: "img/gitLogoColor.png", alt: "GIT logo" },
+		{ title: "html", href: "img/skills/html.png", alt: "HTML logo" },
+		{ title: "css", href: "img/skills/css.png", alt: "CSS logo" },
+		{ title: "js", href: "img/skills/javascript.png", alt: "JS logo" },
+		{ title: "react", href: "img/skills/react.png", alt: "react logo" },
+		{ title: "redux", href: "img/skills/redux.png", alt: "redux logo" },
+		{ title: "nextjs", href: "img/skills/nextjs.png", alt: "nextjs logo" },
+		{ title: "git", href: "img/skills/git.png", alt: "GIT logo" },
+		{
+			title: "bootstrap",
+			href: "img/skills/bootstrap.png",
+			alt: "bootstrap logo",
+		},
+		{ title: "php", href: "img/skills/php.png", alt: "php logo" },
+		{
+			title: "database",
+			href: "img/skills/database.png",
+			alt: "database logo",
+		},
 	]
 
 	const handleMouseEnter = (event) => {
