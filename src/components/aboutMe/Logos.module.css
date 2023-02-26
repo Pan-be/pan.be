@@ -1,0 +1,35 @@
+.logosList {
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	/* justify-content: center; */
+	align-items: center;
+	gap: 20px;
+}
+
+.logoEl img {
+	height: 100px;
+	padding: 0;
+}
+
+.logoEl img:hover {
+	opacity: 50%;
+}
+
+@media (min-width: 700px) {
+	.logosList {
+		flex-direction: row;
+		justify-content: center;
+	}
+
+	.logoEl {
+		width: 60px;
+	}
+
+	.logoEl img {
+		justify-content: center;
+		/* max-width: 200px; */
+		height: 50px;
+		gap: 0;
+	}
+}
