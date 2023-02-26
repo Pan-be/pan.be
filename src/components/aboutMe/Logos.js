@@ -37,6 +37,7 @@ const Logos = () => {
 
 	const imgStyles = {
 		height: "100px",
+		padding: 0,
 	}
 
 	return (
