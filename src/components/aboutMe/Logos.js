@@ -35,6 +35,10 @@ const Logos = () => {
 	// 	handleMouseLeave(e)
 	// }
 
+	const imgStyles = {
+		height: "100px",
+	}
+
 	return (
 		<ul className={classes.logosList}>
 			{logosArr.map((logo) => (
@@ -44,6 +48,7 @@ const Logos = () => {
 						alt={logo.alt}
 						onMouseEnter={handleMouseEnter}
 						onMouseLeave={handleMouseLeave}
+						style={imgStyles}
 						// onClick={handleClick}
 					/>
 				</li>
