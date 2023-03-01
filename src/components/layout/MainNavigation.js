@@ -47,7 +47,7 @@ function MainNavigation() {
 					target='_blank'>
 					<FontAwesomeIcon icon={faLinkedin} className={classes.brandIcon} />
 				</Link>
-				<Link href='#' target='_blank'>
+				<Link href='discord://Pan-Be#3514' target='_blank'>
 					<FontAwesomeIcon icon={faDiscord} className={classes.brandIcon} />
 				</Link>
 			</div>

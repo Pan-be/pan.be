@@ -84,7 +84,8 @@
 html,
 body {
 	font-family: "Montserrat", sans-serif;
-	font-weight: 100;
+	/* font-family: var(--montserrat-font); */
+	font-weight: lighter;
 	max-width: 100vw;
 	overflow-x: hidden;
 }
