@@ -29,7 +29,7 @@ const Offer = () => {
 					</p>
 				</div>
 			</Card>
-			<ContactForm />
+			{/* <ContactForm /> */}
 		</Wrapper>
 	)
 }
