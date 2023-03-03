@@ -14,6 +14,8 @@ const initialState = { values: initValues }
 
 const ContactForm = () => {
 	const [state, setState] = useState(initialState)
+	const [loading, setLoading] = useState(false)
+	const [feedback, setFeedback] = useState(null)
 
 	const { values } = state
 
@@ -28,9 +30,7 @@ const ContactForm = () => {
 
 	const onSubmit = async (e) => {
 		e.preventDefault()
-		setState((prev) => ({
-			...prev,
-		}))
+		setLoading(true)
 		try {
 			await sendContactForm(values)
 		} catch (error) {
@@ -38,6 +38,10 @@ const ContactForm = () => {
 				...prev,
 				error: error.message,
 			}))
+		} finally {
+			setLoading(false)
+			setState(initialState)
+			setFeedback("Message sent!")
 		}
 	}
 
@@ -87,8 +91,14 @@ const ContactForm = () => {
 					/>
 				</div>
 				<div className={classes.actions}>
-					<button onClick={onSubmit}>Send a mail</button>
+					<button disabled={loading}>
+						{loading ? "Sending..." : "Send a mail"}
+						{/* {loading && <span className={classes.loader}></span>} */}
+					</button>
 				</div>
+				{feedback && (
+					<p className={classes.feedback}>Message sent successfully!</p>
+				)}
 			</form>
 		</Card>
 	)
