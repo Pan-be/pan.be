@@ -1,47 +1,79 @@
-import { Email } from "@/utilis/smtp"
+import { sendContactForm } from "@/lib/api"
 import { useState } from "react"
 import Card from "../ui/Card"
 import classes from "./ContactForm.module.css"
 
-const ContactForm = (params) => {
-	const [formState, setFormState] = useState({})
+const initValues = {
+	name: "",
+	email: "",
+	subject: "",
+	message: "",
+}
 
-	const changeHandler = (e) => {
-		setFormState({ ...formState, [e.target.name]: e.target.value })
-	}
+const initialState = { values: initValues }
 
-	const submitHandler = (e) => {
+const ContactForm = () => {
+	const [state, setState] = useState(initialState)
+
+	const { values } = state
+
+	const handleChange = ({ target }) =>
+		setState((prev) => ({
+			...prev,
+			values: {
+				...prev.values,
+				[target.name]: target.value,
+			},
+		}))
+
+	const onSubmit = async (e) => {
 		e.preventDefault()
-		const config = {
-			SecureToken: "9ca126dc-b3a4-4226-a1e8-2f6ae29256cc",
-			To: "pan.be.fed@gmail.com",
-			From: formState.email,
-			Subject: "From Pan.Be contact form",
-			Body: formState.name,
-		}
-		if (Email) {
-			Email.send(config).then(() => alert("email sent succesfully"))
+		setState((prev) => ({
+			...prev,
+		}))
+		try {
+			await sendContactForm(values)
+		} catch (error) {
+			setState((prev) => ({
+				...prev,
+				error: error.message,
+			}))
 		}
 	}
 
 	return (
 		<Card>
-			<form onSubmit={submitHandler}>
+			<form>
 				<input
 					type='text'
 					name='name'
 					placeholder='Your Name'
-					value={formState.name || ""}
-					onChange={changeHandler}
+					value={values.name}
+					onChange={handleChange}
 				/>
 				<input
 					type='email'
 					name='email'
-					placeholder='Your message'
-					value={formState.email || ""}
-					onChange={changeHandler}
+					placeholder='Your email'
+					value={values.email}
+					onChange={handleChange}
 				/>
-				<input type='submit' value='Send Email' />
+				<input
+					type='text'
+					name='subject'
+					placeholder='Your subject'
+					value={values.subject}
+					onChange={handleChange}
+				/>
+				<textarea
+					type='text'
+					name='message'
+					placeholder='Your message'
+					rows={4}
+					value={values.message}
+					onChange={handleChange}
+				/>
+				<button onClick={onSubmit}>Send a mail</button>
 			</form>
 		</Card>
 	)
