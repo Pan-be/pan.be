@@ -39,4 +39,4 @@ The project will run on `http://localhost:3000`.
 
 ## Author
 
-pan.be
+[pan.be](https://business-card-pan-be.netlify.app)
